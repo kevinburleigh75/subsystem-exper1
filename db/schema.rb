@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 150) do
+ActiveRecord::Schema.define(version: 151) do
 
   create_table "courses", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 150) do
   end
 
   add_index "role_ss_course_section_maps", ["course_id", "section_id"], name: "index_role_ss_course_section_maps_on_course_id_and_section_id", unique: true
+
+  create_table "role_ss_section_student_maps", force: :cascade do |t|
+    t.integer  "section_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "role_ss_section_student_maps", ["section_id", "role_id"], name: "index_role_ss_section_student_maps_on_section_id_and_role_id", unique: true
 
   create_table "role_ss_user_role_maps", force: :cascade do |t|
     t.integer  "user_id"
