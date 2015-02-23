@@ -1,4 +1,4 @@
-class Ss::Role::UserRoleMap < ActiveRecord::Base
+class RoleSs::UserRoleMap < ActiveRecord::Base
   belongs_to :user
   belongs_to :role
 

@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-describe Ss::Role::AddUserRole do
+describe RoleSs::AddUserRole do
   it 'can add a role to a user' do
     user = User.create!
     role = Role.create!
 
-    result = Ss::Role::AddUserRole.call(user,role)
+    result = RoleSs::AddUserRole.call(user,role)
     expect(result.errors).to be_empty
 
-    ss_maps = Ss::Role::UserRoleMap.where{user_id == user.id}
+    ss_maps = RoleSs::UserRoleMap.where{user_id == user.id}
     expect(ss_maps.size).to eq(1)
     expect(ss_maps.first.role_id).to eq(role.id)
   end
@@ -16,13 +16,13 @@ describe Ss::Role::AddUserRole do
     user = User.create!
     role = Role.create!
 
-    result = Ss::Role::AddUserRole.call(user,role)
+    result = RoleSs::AddUserRole.call(user,role)
     expect(result.errors).to be_empty
 
-    result = Ss::Role::AddUserRole.call(user,role)
+    result = RoleSs::AddUserRole.call(user,role)
     expect(result.errors).to_not be_empty
 
-    ss_maps = Ss::Role::UserRoleMap.where{user_id == user.id}
+    ss_maps = RoleSs::UserRoleMap.where{user_id == user.id}
     expect(ss_maps.size).to eq(1)
     expect(ss_maps.first.role_id).to eq(role.id)
   end
