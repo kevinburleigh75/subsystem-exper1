@@ -11,21 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222225052) do
+ActiveRecord::Schema.define(version: 10) do
 
-  create_table "ns1_ns2_names", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "role_ss_user_role_map", force: :cascade do |t|
+  create_table "role_ss_user_role_maps", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "role_ss_user_role_map", ["user_id", "role_id"], name: "index_role_ss_user_role_map_on_user_id_and_role_id", unique: true
+  add_index "role_ss_user_role_maps", ["user_id", "role_id"], name: "index_role_ss_user_role_maps_on_user_id_and_role_id", unique: true
 
   create_table "roles", force: :cascade do |t|
     t.datetime "created_at", null: false

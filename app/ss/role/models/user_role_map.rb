@@ -1,13 +1,7 @@
-module Ss
-  module Role
-    class UserRoleMap < ActiveRecord::Base
-      belongs_to :user
-      belongs_to :role
+class Ss::Role::UserRoleMap < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :role
 
-      validates_presence_of :user
-      validates_presence_of :role
-
-      validates_uniqueness_of :role, scope: :user
-    end
-  end
+  validates_presence_of :user_id
+  validates_presence_of :role_id
 end
