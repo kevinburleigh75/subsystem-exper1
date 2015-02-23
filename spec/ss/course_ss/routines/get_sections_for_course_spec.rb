@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe CourseSs::GetSectionsForCourse do
-  context "when there are no sections for the given course" do
-    it "return no sections" do
+  context "there are no sections for the given course" do
+    it "returns no sections" do
       target_course = Course.create!
 
       result = CourseSs::GetSectionsForCourse.call(target_course)
